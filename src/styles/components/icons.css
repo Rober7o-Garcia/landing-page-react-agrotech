@@ -1,0 +1,23 @@
+.icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--space-6);
+}
+
+
+
+.service-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--space-5);
+}

@@ -1,0 +1,23 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  font-family: var(--font-main);
+  font-size: var(--text-base);
+  line-height: var(--line-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  line-height: var(--line-relaxed);
+  color: var(--color-muted);
+}

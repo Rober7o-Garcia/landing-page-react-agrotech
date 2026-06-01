@@ -1,0 +1,17 @@
+.hero-content .tag,
+.section-title span,
+.contact-info span,
+.tag-demo {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-text);
+  font-weight: 700;
+  font-size: var(--text-xs);
+}
+
+.tag-demo {
+  margin-bottom: 0;
+}

@@ -1,0 +1,17 @@
+.services {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+}
+
+.service-item {
+  padding: var(--space-9);
+  background: var(--color-bg);
+  border-left: 0.3125rem solid var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 64rem) {
+  .services {
+    border-radius: 2.125rem;
+  }
+}

@@ -1,0 +1,36 @@
+.section {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--space-13) var(--space-7);
+}
+
+.section-title {
+  text-align: center;
+  max-width: var(--content-width);
+  margin: 0 auto var(--space-12);
+}
+
+.section-title h2,
+.contact-info h2 {
+  font-size: clamp(1.9rem, 8vw, 2.6rem);
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  line-height: 1.15;
+}
+
+.section-title p,
+.contact-info p {
+  max-width: var(--paragraph-width);
+}
+
+@media (min-width: 48rem) {
+  .section {
+    padding: var(--space-14) var(--space-8);
+  }
+}
+
+@media (min-width: 64rem) {
+  .section {
+    padding: var(--space-15) var(--space-8);
+  }
+}
