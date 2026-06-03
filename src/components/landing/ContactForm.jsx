@@ -7,6 +7,8 @@ function ContactForm() {
     errores,
     enviado,
     formularioValidado,
+    cargando,
+    mensajeRespuesta,
     manejarCambio,
     manejarEnvio,
   } = useContactForm();
@@ -160,15 +162,22 @@ function ContactForm() {
           </div>
         </fieldset>
 
-        <button type="submit" className="btn btn-primary form-button">
-          Enviar solicitud
-        </button>
+          <button
+            type="submit"
+            className="btn btn-primary form-button"
+            disabled={cargando}
+          >
+            {cargando ? 'Enviando solicitud...' : 'Enviar solicitud'}
+          </button>
 
-        {enviado && (
-          <p className="success-message" role="status">
-            Solicitud enviada correctamente. Pronto nos comunicaremos contigo.
-          </p>
-        )}
+          {mensajeRespuesta && (
+            <p
+              className={enviado ? 'success-message' : 'error-message'}
+              role="status"
+            >
+              {mensajeRespuesta}
+            </p>
+          )}
       </form>
     </section>
   );
