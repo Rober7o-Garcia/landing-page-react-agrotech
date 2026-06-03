@@ -15,6 +15,8 @@ export function useContactForm() {
   const [errores, setErrores] = useState({});
   const [enviado, setEnviado] = useState(false);
   const [formularioValidado, setFormularioValidado] = useState(false);
+  const [cargando, setCargando] = useState(false);
+  const [mensajeRespuesta, setMensajeRespuesta] = useState('');
 
   const updateCheckboxValue = ({ value, checked }) => {
     setFormData((currentData) => {
@@ -49,9 +51,10 @@ export function useContactForm() {
     setFormularioValidado(false);
   };
 
-  const manejarEnvio = (event) => {
+  const manejarEnvio = async (event) => {
     event.preventDefault();
     setFormularioValidado(true);
+    setMensajeRespuesta('');
 
     const validationErrors = validateContactForm(formData);
     const isValidForm = Object.keys(validationErrors).length === 0;
@@ -63,8 +66,34 @@ export function useContactForm() {
       return;
     }
 
-    setEnviado(true);
-    resetForm();
+    try {
+      setCargando(true);
+
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setEnviado(false);
+        setMensajeRespuesta(data.message || 'No se pudo enviar la solicitud');
+        return;
+      }
+
+      setEnviado(true);
+      setMensajeRespuesta(data.message || 'Solicitud enviada correctamente');
+      resetForm();
+    } catch (error) {
+      setEnviado(false);
+      setMensajeRespuesta('No se pudo conectar con el servidor');
+    } finally {
+      setCargando(false);
+    }
   };
 
   return {
@@ -72,6 +101,8 @@ export function useContactForm() {
     errores,
     enviado,
     formularioValidado,
+    cargando,
+    mensajeRespuesta,
     manejarCambio,
     manejarEnvio,
   };
