@@ -90,3 +90,5 @@ app.post('/api/contact', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor backend ejecutándose en http://localhost:${PORT}`);
 });
+
+console.log('El william es puto')
