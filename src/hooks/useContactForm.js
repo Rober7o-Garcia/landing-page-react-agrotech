@@ -88,7 +88,7 @@ export function useContactForm() {
       setEnviado(true);
       setMensajeRespuesta(data.message || 'Solicitud enviada correctamente');
       resetForm();
-    } catch (error) {
+    } catch {
       setEnviado(false);
       setMensajeRespuesta('No se pudo conectar con el servidor');
     } finally {
