@@ -77,12 +77,12 @@ app.post('/api/contact', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Solicitud enviada correctamente'
+      message: 'La solicitud fue enviada correctamente'
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: 'Error al enviar la solicitud'
+      message: 'Ocurrio un error al enviar la solicitud'
     });
   }
 });
@@ -90,5 +90,3 @@ app.post('/api/contact', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor backend ejecutándose en http://localhost:${PORT}`);
 });
-
-console.log('El william es puto')
